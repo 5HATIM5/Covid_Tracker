@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Live View
-Live project link : https://netflix-clone-805d5.web.app/
+Live project link : https://covid19-tracker-82c88.web.app/
 
 ## Available Scripts
 
