@@ -1,18 +1,13 @@
 import React , {useState,useEffect} from 'react';
-import * as tfvis from '@tensorflow/tfjs-vis';
-import * as tf from '@tensorflow/tfjs';
 import './App.css';
 import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
-import ML from './ML';
 import LineGraph from './LineGraph';
 import {sortData,prettyPrint} from "./util";
 import "leaflet/dist/leaflet.css";
 import {MenuItem,FormControl,Select} from "@material-ui/core";
 import {Card,CardContent} from "@material-ui/core";
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-
 
 
 function App() {
@@ -25,7 +20,6 @@ function App() {
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
-  const [ml, setMl] = useState(false);
 
   useEffect(() => {
    fetch( "https://disease.sh/v3/covid-19/all").then(response=>response.json())
@@ -78,9 +72,6 @@ function App() {
   
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
         <div className="App">
 
 <div className="app_left">
@@ -96,8 +87,6 @@ function App() {
               ))
             }
         </Select>
-        <button onClick={()=>setMl(true)}>OPEN</button>
-        <button onClick={()=>window.open("./ahm.html")}>OPEN</button>
       </FormControl>
   </div>
 
@@ -144,13 +133,6 @@ function App() {
   </CardContent>
 </Card>
 </div>
-
-        </Route>
-        <Route path="/Visor">
-            <ML/>
-        </Route>
-      </Switch>
-    </Router>
   )
 }
 
